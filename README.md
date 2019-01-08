@@ -13,7 +13,7 @@
 ## Install
 
 ```fish
-$ omf install tweetjay
+$ fisher add tweetjay/fish-utils
 ```
 
 ## Features
@@ -27,7 +27,7 @@ $ omf install tweetjay
 
 # License
 
-This theme is released unter the [MIT License][mit-license]
+This theme is released under the [MIT License][mit-license]
 © [Johannes Steudle][author]
 
 [mit-license]:    https://opensource.org/licenses/MIT
