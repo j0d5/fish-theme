@@ -1,7 +1,7 @@
 set -g fish_color_git_clean green
 set -g fish_color_git_staged yellow
 set -g fish_color_git_dirty red
-set -g fish_color_git_sha cyan
+set -g fish_color_git_sha normal # cyan
 
 set -g fish_color_git_added green
 set -g fish_color_git_modified blue
@@ -12,16 +12,14 @@ set -g fish_color_git_untracked yellow
 set -g fish_color_git_unmerged red
 
 set -g fish_prompt_git_status_added '✚'
-set -g fish_prompt_git_status_modified '*'
+set -g fish_prompt_git_status_modified '🌤 ' # \u26C5 #2614
 set -g fish_prompt_git_status_renamed '➜'
 set -g fish_prompt_git_status_copied '⇒'
 set -g fish_prompt_git_status_deleted '✖'
 set -g fish_prompt_git_status_untracked '?'
 set -g fish_prompt_git_status_unmerged '!'
-set -g fish_prompt_git_status_dirty ''
-set -g fish_prompt_git_status_clean ''
-# set -g fish_prompt_git_status_dirty '⚡'
-set -g fish_prompt_git_status_clean '✓'
+set -g fish_prompt_git_status_dirty '🤮 ' #\u2614
+set -g fish_prompt_git_status_clean 🦄
 
 set -g fish_prompt_git_status_order added modified renamed copied deleted untracked unmerged
 
@@ -37,6 +35,7 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
 
   echo -n ' ['
 
+  # Get current git status
   set -l index (git status --porcelain ^/dev/null|cut -c 1-2|sort -u)
 
   if test -z "$index"
@@ -52,6 +51,7 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
     return
   end
 
+  # Detect git status
   set -l gs
   set -l staged
 
@@ -77,7 +77,17 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
     set_color $fish_color_git_dirty
   end
 
-  echo -n -s $branch $fish_prompt_git_status_dirty
+  # Print status colored branch name
+  echo -n -s $branch # $fish_prompt_git_status_dirty
+
+  set_color normal
+  echo -n ":"
+
+  set_color $fish_color_git_sha
+  echo (__git_prompt_short_sha)
+
+  set_color blue
+  echo -n "]"
 
   for i in $fish_prompt_git_status_order
     if contains $i in $gs
@@ -89,11 +99,6 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
     end
   end
 
-  set_color blue
-  echo -n ":"
-  set_color $fish_color_git_sha
-  echo (__git_prompt_short_sha)
-  set_color blue
-  echo -n "]"
+  # Reset color to default color
   set_color normal
 end

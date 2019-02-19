@@ -1,3 +1,5 @@
+set fish_color_search_match --background=magenta
+
 function fish_prompt --description 'Write out the prompt'
   set __fish_prompt_char_final '→'
 
@@ -75,31 +77,9 @@ function fish_prompt --description 'Write out the prompt'
     set prompt_status ' ' (set_color $fish_color_status) "[$last_status]" "$normal"
   end
 
-  set -l mode_str
-  switch "$fish_key_bindings"
-  case '*_vi_*' '*_vi'
-    # possibly fish_vi_key_bindings, or custom key bindings
-    # that includes the name "vi"
-    set mode_str (
-      echo -n " "
-      switch $fish_bind_mode
-      case default
-        set_color --bold --background red white
-        echo -n "[N]"
-      case insert
-        set_color --bold green
-        echo -n "[I]"
-      case visual
-        set_color --bold magenta
-        echo -n "[V]"
-      end
-      set_color normal
-    )
-  end
-
   echo -n -s $prompt_user_host ' '
   echo -n -s (set_color $color_cwd) (prompt_pwd) $normal
   echo -n -s $c1 (__tweetjay_git_prompt) $normal
-  echo -n -s $prompt_status "$mode_str"
+  echo -n -s $prompt_status
   printf "\n $suffix "
 end
