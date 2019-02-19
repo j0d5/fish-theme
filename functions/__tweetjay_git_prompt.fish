@@ -37,7 +37,7 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
     return
   end
 
-  set_color blue
+  set_color cyan
   echo -n ' ['
   set_color normal
 
@@ -47,11 +47,11 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
   if test -z "$index"
     set_color $fish_color_git_clean
     echo -n -s $branch $fish_prompt_git_status_clean
-    set_color blue
+    set_color normal
     echo -n ":"
     set_color $fish_color_git_sha
     echo (__git_prompt_short_sha)
-    set_color blue
+    set_color cyan
     echo -n "] "
     set_color normal
     return
@@ -92,7 +92,7 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
   set_color $fish_color_git_sha
   echo (__git_prompt_short_sha)
 
-  set_color blue
+  set_color cyan
   echo -n "]"
 
   for i in $fish_prompt_git_status_order
