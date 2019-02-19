@@ -2,7 +2,7 @@
 set -g fish_color_git_clean green
 set -g fish_color_git_staged yellow
 set -g fish_color_git_dirty red
-set -g fish_color_git_sha normal # cyan
+set -g fish_color_git_sha normal
 
 # Status colors
 set -g fish_color_git_added green
@@ -37,7 +37,9 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
     return
   end
 
+  set_color blue
   echo -n ' ['
+  set_color normal
 
   # Get current git status
   set -l index (git status --porcelain ^/dev/null|cut -c 1-2|sort -u)
@@ -50,7 +52,7 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
     set_color $fish_color_git_sha
     echo (__git_prompt_short_sha)
     set_color blue
-    echo -n "]"
+    echo -n "] "
     set_color normal
     return
   end
@@ -82,7 +84,7 @@ function __tweetjay_git_prompt -d 'Write out the git prompt'
   end
 
   # Print status colored branch name
-  echo -n -s $branch # $fish_prompt_git_status_dirty
+  echo -n -s $branch $fish_prompt_git_status_dirty
 
   set_color normal
   echo -n ":"
