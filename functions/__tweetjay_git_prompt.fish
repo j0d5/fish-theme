@@ -14,15 +14,15 @@ set -g fish_color_git_untracked yellow
 set -g fish_color_git_unmerged red
 
 # Status symbols
-set -g fish_prompt_git_status_added '✚'
-set -g fish_prompt_git_status_modified '🌤 ' # \u26C5 #2614
-set -g fish_prompt_git_status_renamed '➜'
-set -g fish_prompt_git_status_copied '⇒'
-set -g fish_prompt_git_status_deleted '✖'
-set -g fish_prompt_git_status_untracked '?'
-set -g fish_prompt_git_status_unmerged '!'
-set -g fish_prompt_git_status_dirty '🤮 ' #\u2614
-set -g fish_prompt_git_status_clean 🦄
+set -g fish_prompt_git_status_added '🤓 '
+set -g fish_prompt_git_status_modified '🧐 '
+set -g fish_prompt_git_status_renamed '🧐 '
+set -g fish_prompt_git_status_copied '😎 '
+set -g fish_prompt_git_status_deleted '😱 '
+set -g fish_prompt_git_status_untracked '🤔 '
+set -g fish_prompt_git_status_unmerged '🤯 '
+set -g fish_prompt_git_status_dirty '🤮 '
+set -g fish_prompt_git_status_clean '🦄 '
 
 # Set order of status
 set -g fish_prompt_git_status_order added modified renamed copied deleted untracked unmerged
