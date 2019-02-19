@@ -37,13 +37,7 @@ function __tweetjay_timestamp -S -d 'Show the current timestamp'
 end
 
 function fish_right_prompt -d 'tweetjay is all about the right prompt'
-  # set -l __tweetjay_left_arrow_glyph \uE0B3
-  # if [ "$theme_powerline_fonts" = "no" ]
-  #   set __tweetjay_left_arrow_glyph '<'
-  # end
-
   set_color $fish_color_autosuggestion
-
   # __tweetjay_cmd_duration
   __tweetjay_timestamp
   set_color normal
