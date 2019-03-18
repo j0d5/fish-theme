@@ -27,7 +27,7 @@ $ fisher add tweetjay/fish-theme
 
 ## Screenshot
 
-![screenshot](screenshots/fish-theme.png)
+![screenshot](https://user-images.githubusercontent.com/234182/54518073-be037b80-4963-11e9-9490-ffc232efc113.png)
 
 # License
 
