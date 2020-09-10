@@ -1,7 +1,9 @@
 set fish_color_search_match --background=magenta
 
 function fish_prompt --description 'Write out the prompt'
-  set __fish_prompt_char_final '→'
+  # set __fish_prompt_char_final '→'
+  # set __fish_prompt_char_final (set_color 'black' --background normal) $normal'\uE0B0'
+  set __fish_prompt_char_final $normal'\uE0B0'
 
   set -l last_status $status
 

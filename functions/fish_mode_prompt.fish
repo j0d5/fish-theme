@@ -12,7 +12,7 @@ function fish_mode_prompt --description "Displays prompt mode"
                 echo 🆁
             case visual
                 set_color --bold cyan
-                echo 🆅 
+                echo 🆅
             end
         set_color normal
         printf " "
