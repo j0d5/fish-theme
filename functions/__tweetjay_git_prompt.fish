@@ -33,7 +33,8 @@ function __git_prompt_short_sha -d 'Print git commit short SHA'
 end
 
 function __tweetjay_git_prompt -d 'Print out the git prompt'
-  set -l branch (git rev-parse --abbrev-ref HEAD ^/dev/null)
+  # set -l branch (git rev-parse --abbrev-ref HEAD ^/dev/null)
+  set -l branch (git rev-parse --abbrev-ref HEAD ^/dev/null | ack -o '^([a-zA-Z]+)(\/[a-zA-Z]+(\w|-[0-9]{4}))?')
   # If the branch is zero, it's not a git repository
   if test -z $branch
     return
